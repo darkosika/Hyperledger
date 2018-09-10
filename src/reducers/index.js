@@ -1,8 +1,10 @@
-import cart from './cart';
+import Reducers from './reducers';
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 const rootReducer=combineReducers({
-    cart
+    posts:Reducers,
+    form: formReducer
 });
 
 export default rootReducer;
