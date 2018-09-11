@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 class GetItems extends Component{
+    renderData(data){
+        return(
+         <tr key={data.firstName}>
+         <td>{data.balance}</td>
+          {data.products.map(product=>
+         <td key={product.productId}>{product.description} </td>)}
+         </tr>
+        );
+    }
     render(){
         return(
             <div>
@@ -13,10 +22,7 @@ class GetItems extends Component{
         </thead>
         
         <tbody key="tbody">
-        <tr key="tr">
-         { console.log(this.props.posts[0]) }
-        {/*this.state.posts[0] && <td>{this.state.posts[0].balance}</td>*/}
-        </tr>
+        {(this.props.posts.map(this.renderData))}
         </tbody>
         </table>
             </div>
